@@ -1,12 +1,14 @@
 export const lightTheme = {
+  title: "light",
   main: "#fd9533",
   buttonColor: "#ffffff",
   buttonBackground: "#fd9533",
   buttonBorderColor: "#ff28283d",
-  color: "#ffffff"
+  color: "#272727"
 };
 
 export const darkTheme = {
+  title: "dark",
   main: "#fd9533",
   buttonBackground: "#00000000",
   buttonBorderColor: "#fd9533",
