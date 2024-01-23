@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useContext, useState } from "react";
 
 import { StyledButton } from "../Button/Button";
-import { H1 } from "../Text/h1";
+import { PageTitle } from "../Text/PageTitle";
 import { Span } from "../Text/span";
 import { Switch } from "../Switch/Switch";
 import "./header.css";
@@ -46,7 +46,7 @@ export const Header = ({
         <div></div>
         <div className="storybook-header">
           <div>
-            <H1>Burger Place</H1>
+            <PageTitle>Burger Place</PageTitle>
           </div>
           <div>
             {user ? (

@@ -4,6 +4,7 @@ export const lightTheme = {
   buttonColor: "#ffffff",
   buttonBackground: "#fd9533",
   buttonBorderColor: "#ff28283d",
+  bgColor: "#ffffff",
   color: "#272727"
 };
 
