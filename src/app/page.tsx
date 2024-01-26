@@ -1,16 +1,36 @@
 "use client";
-import { StyledButton } from "@/stories/Button/Button";
+
+import { Root } from "@/app/Root";
+import { LandingPage } from "@/app/LandingPage";
+import { useAtom } from "jotai";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { darkTheme } from "@/themes";
+import Ingredient from "./Ingredient";
+import { theme } from "./ThemeAtom";
 
 export default function MyApp() {
-  const theme: any = darkTheme
+  const [appTheme]: any = useAtom(theme);
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          path: "/",
+          element: <LandingPage />
+        },
+        {
+          path: "ingredient",
+          element: <Ingredient />,
+        },
+      ],
+    }
+  ]);
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <div style={{backgroundColor: theme.bgColor}}>
-        <StyledButton>Test StyledButton</StyledButton>
-      </div>
+    <ThemeProvider theme={appTheme}>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

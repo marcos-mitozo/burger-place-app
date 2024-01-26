@@ -1,15 +1,18 @@
-import React, { ChangeEvent, useContext, useState } from "react";
+"use client";
 
+import React from "react";
 import { StyledButton } from "../Button/Button";
 import { PageTitle } from "../Text/PageTitle";
 import { Span } from "../Text/span";
 import { Switch } from "../Switch/Switch";
 import "./header.css";
 import { darkTheme, lightTheme } from "../../themes";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { useAtom } from "jotai";
+import { theme } from "@/app/ThemeAtom";
 
 type User = {
   name: string;
@@ -17,9 +20,9 @@ type User = {
 
 interface HeaderProps {
   user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+  onLogin?: () => void;
+  onLogout?: () => void;
+  onCreateAccount?: () => void;
 }
 
 export const Header = ({
@@ -28,12 +31,10 @@ export const Header = ({
   onLogout,
   onCreateAccount,
 }: HeaderProps) => {
-  const [checked, setChecked] = useState(false);
-  const [theme, setTheme]: any = useState(darkTheme);
+  const [appTheme, setAppTheme]: any = useAtom(theme);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-    setTheme(theme.title === "dark" ? lightTheme : darkTheme);
+  const handleChange = () => {
+    setAppTheme(appTheme.title === "dark" ? lightTheme : darkTheme);
   };
 
   const ThemeSwitchWrapper = styled.div`
@@ -41,8 +42,7 @@ export const Header = ({
   `;
 
   return (
-    <ThemeProvider theme={theme}>
-      <header style={{ backgroundColor: theme.bgColor }}>
+      <header style={{ backgroundColor: appTheme.bgColor, position: "absolute", minWidth: "100%", top: 0, left: 0, zIndex: 999  }}>
         <div></div>
         <div className="storybook-header">
           <div>
@@ -77,18 +77,17 @@ export const Header = ({
             )}
             <ThemeSwitchWrapper>
               <FontAwesomeIcon
-                icon={theme.title === "light" ? faSun : faMoon}
+                icon={appTheme.title === "light" ? faSun : faMoon}
                 style={{
                   marginTop: 7,
                   marginRight: 4,
-                  color: theme.title === "light" ? "#000000" : "#FFD43B",
+                  color: appTheme.title === "light" ? "#000000" : "#FFD43B",
                 }}
               />
-              <Switch checked={checked} handleChange={handleChange} border />
+              <Switch checked={appTheme.title === "dark" ? true : false} handleChange={handleChange} border />
             </ThemeSwitchWrapper>
           </div>
         </div>
       </header>
-    </ThemeProvider>
   );
 };

@@ -12,7 +12,6 @@ export const StyledButton = ({ children }: any) => {
     border-radius: 3px;
     max-width: 15rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     display: inline-block;
   `;
