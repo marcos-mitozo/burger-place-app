@@ -14,6 +14,12 @@ export const StyledButton = ({ children }: any) => {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
     cursor: pointer;
     display: inline-block;
+
+    &:hover {
+      transition: .5s;
+      color: ${(props) => props.theme.hoverButtonColor};
+      background-color: ${(props) => props.theme.hoverButtonBackground};
+    }
   `;
 
   return <Button>{children}</Button>;
