@@ -8,7 +8,10 @@ export const lightTheme = {
   buttonBorderColor: "#ff28283d",
   bgColor: "#f0f0f0",
   color: "#272727",
-  inputBackground: "#ffffff"
+  inputBackground: "#ffffff",
+  tableBackground: "#f8f8f8ff",
+  tableBorderColor: "#4141418f",
+  theadBackground: "#00000006"
 };
 
 export const darkTheme = {
@@ -21,6 +24,9 @@ export const darkTheme = {
   hoverButtonColor: "#ffffff",
   bgColor: "#252429ff",
   color: "#ffffff",
-  inputBackground: "#181818"
+  inputBackground: "#181818",
+  tableBackground: "#3f3f3f65",
+  tableBorderColor: "#ececec6c",
+  theadBackground: "#ffffff06"
 };
 

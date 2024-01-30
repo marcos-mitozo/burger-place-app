@@ -12,7 +12,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useAtom } from "jotai";
-import { theme } from "@/app/ThemeAtom";
+import { theme } from "../../app/ThemeAtom";
 
 type User = {
   name: string;
