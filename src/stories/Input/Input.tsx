@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 
-export const Input = styled.input`
+const StyledInput = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   border: 1px solid ${(props) => props.theme.color};
@@ -15,3 +16,7 @@ export const Input = styled.input`
     border: 2px solid #fd9533;
   }
 `;
+
+export const Input:React.FC = (props: any) => {
+  return <StyledInput {...props} />
+}

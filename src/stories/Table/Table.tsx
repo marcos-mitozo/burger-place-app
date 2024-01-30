@@ -1,34 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Table: any = ({ columns, rows, fields }: any) => {
-  const StyledTable = styled.table`
-    color: ${(props) => props.theme.color};
-    background-color: ${(props) => props.theme.tableBackground};
-    border: 1px solid #ececec09;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.69);
-    display: block;
-    max-width: 100%;
-    position: relative;
-    border-spacing: 10px;
-  `;
+const StyledTable = styled.table`
+  color: ${(props) => props.theme.color};
+  background-color: ${(props) => props.theme.tableBackground};
+  border: 1px solid #ececec09;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.69);
+  display: block;
+  max-width: 100%;
+  position: relative;
+  border-spacing: 10px;
+`;
 
+export const Table: any = ({ columns, rows, fields }: any) => {
   return (
     <StyledTable>
       <Table.Head>
         <Table.TR>
           {columns.map((header: string) => (
-            <Table.TH>{header}</Table.TH>
+            <Table.TH id={header}>{header}</Table.TH>
           ))}
         </Table.TR>
       </Table.Head>
       <Table.Body>
         {rows.map((row: any) => (
-          <Table.TR>
-            {
-                fields.map((field: any) => <Table.TD>{row[field]}</Table.TD>)
-            }
+          <Table.TR id={row}>
+            {fields.map((field: any) => (
+              <Table.TD id={field}>{row[field]}</Table.TD>
+            ))}
           </Table.TR>
         ))}
       </Table.Body>

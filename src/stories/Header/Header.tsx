@@ -25,6 +25,10 @@ interface HeaderProps {
   onCreateAccount?: () => void;
 }
 
+const ThemeSwitchWrapper = styled.div`
+  display: inline-flex;
+`;
+
 export const Header = ({
   user,
   onLogin,
@@ -36,10 +40,6 @@ export const Header = ({
   const handleChange = () => {
     setAppTheme(appTheme.title === "dark" ? lightTheme : darkTheme);
   };
-
-  const ThemeSwitchWrapper = styled.div`
-    display: inline-flex;
-  `;
 
   return (
       <header style={{ backgroundColor: appTheme.bgColor, position: "absolute", minWidth: "100%", top: 0, left: 0, zIndex: 999  }}>
