@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import styled from "styled-components";
 
 const StyledInput = styled.input`
@@ -17,6 +17,11 @@ const StyledInput = styled.input`
   }
 `;
 
-export const Input:React.FC = (props: any) => {
+interface IInput {
+  id?: string | undefined
+  type?: "text" | "number" | undefined
+}
+
+export const Input:React.FC<IInput> = (props: IInput) => {
   return <StyledInput {...props} />
 }

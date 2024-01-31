@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
   color: ${(props) => props.theme.buttonColor};
   background-color: ${(props) => props.theme.buttonBackground};
-  font-size: 1em;
+  font-size: 1.05em;
   margin: 1em;
   padding: 0.25em 1em;
   border: 1px solid ${(props) => props.theme.buttonBorderColor};
@@ -12,6 +12,7 @@ const Button = styled.button`
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   cursor: pointer;
   display: inline-block;
+  font-weight: ${(props) => props.theme.fontWeight};
 
   &:hover {
     transition: 0.5s;

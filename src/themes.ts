@@ -19,14 +19,15 @@ export const darkTheme = {
   main: "#fd9533",
   buttonBackground: "#00000000",
   hoverButtonBackground: "#fd9533",
-  buttonBorderColor: "#fd9533",
-  buttonColor: "#fd9533",
+  buttonBorderColor: "#fdb36e",
+  buttonColor: "#fdb36e",
   hoverButtonColor: "#ffffff",
   bgColor: "#252429ff",
   color: "#ffffff",
   inputBackground: "#181818",
   tableBackground: "#3f3f3f65",
   tableBorderColor: "#ececec6c",
-  theadBackground: "#ffffff06"
+  theadBackground: "#ffffff06",
+  fontWeight: "bold"
 };
 
