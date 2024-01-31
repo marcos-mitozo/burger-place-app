@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useAtom } from "jotai";
 import { theme } from "../../app/ThemeAtom";
+import { Link } from "react-router-dom";
 
 type User = {
   name: string;
@@ -42,52 +43,63 @@ export const Header = ({
   };
 
   return (
-      <header style={{ backgroundColor: appTheme.bgColor, position: "absolute", minWidth: "100%", top: 0, left: 0, zIndex: 999  }}>
-        <div></div>
-        <div className="storybook-header">
-          <div>
+    <header
+      style={{
+        backgroundColor: appTheme.bgColor,
+        position: "absolute",
+        minWidth: "100%",
+        top: 0,
+        left: 0,
+        zIndex: 999,
+      }}
+    >
+      <div></div>
+      <div className="storybook-header">
+        <div>
+          <Link to="/">
             <PageTitle>Burger Place</PageTitle>
-          </div>
-          <div>
-            {user ? (
-              <>
-                <Span className="welcome">
-                  Welcome, <b>{user.name}</b>!
-                </Span>
-                <StyledButton
-                  size="small"
-                  onClick={onLogout}
-                  children="Log out"
-                />
-              </>
-            ) : (
-              <>
-                <StyledButton
-                  size="small"
-                  onClick={onLogin}
-                  children="Log in"
-                />
-                <StyledButton
-                  primary
-                  size="small"
-                  onClick={onCreateAccount}
-                  children="Sign up"
-                />
-              </>
-            )}
-            <ThemeSwitchWrapper>
-              <FontAwesomeIcon
-                icon={appTheme.title === "light" ? faSun : faMoon}
-                style={{
-                  marginTop: 7,
-                  marginRight: 4,
-                  color: appTheme.title === "light" ? "#000000" : "#FFD43B",
-                }}
-              />
-              <Switch checked={appTheme.title === "dark" ? true : false} handleChange={handleChange} border />
-            </ThemeSwitchWrapper>
-          </div>
+          </Link>
         </div>
-      </header>
+        <div>
+          {user ? (
+            <>
+              <Span className="welcome">
+                Welcome, <b>{user.name}</b>!
+              </Span>
+              <StyledButton
+                size="small"
+                onClick={onLogout}
+                children="Log out"
+              />
+            </>
+          ) : (
+            <>
+              <StyledButton size="small" onClick={onLogin} children="Log in" />
+              <StyledButton
+                primary
+                size="small"
+                onClick={onCreateAccount}
+                children="Sign up"
+              />
+            </>
+          )}
+          <ThemeSwitchWrapper>
+            <FontAwesomeIcon
+              icon={appTheme.title === "light" ? faSun : faMoon}
+              style={{
+                marginTop: 7,
+                marginRight: 4,
+                color: appTheme.title === "light" ? "#000000" : "#FFD43B",
+              }}
+            />
+            <Switch
+              checked={appTheme.title === "dark" ? true : false}
+              handleChange={handleChange}
+              border
+            />
+          </ThemeSwitchWrapper>
+        </div>
+      </div>
+    </header>
   );
 };
