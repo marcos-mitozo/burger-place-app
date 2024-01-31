@@ -101,7 +101,7 @@ const Ingredient: React.FC = () => {
               )}
           </FieldWrapper>
         </FormFieldsWrapper>
-        <StyledButton>Salvar</StyledButton>
+        <StyledButton>Save</StyledButton>
       </FormContainer>
 
       <Table columns={columns} rows={regs} fields={fields} />
